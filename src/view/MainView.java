@@ -7,6 +7,9 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+import sun.java2d.SunGraphics2D;
+import sun.print.PeekGraphics;
+
 public class MainView {
 	static GraphicsConfiguration gc;
 	public static void main(String[] args){
@@ -23,7 +26,14 @@ public class MainView {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
+		GridLayout gridLayout = new GridLayout(20,4);
+		frame.setLayout(gridLayout);
 		frame.add(artefacts.ataque());
+		frame.add(artefacts.energia());
+		frame.add(artefacts.movimentar());
+		Checkerboard comp = new Checkerboard();
+		frame.add(comp);
 		frame.pack();
 		frame.setVisible(true);
 	}
