@@ -4,7 +4,7 @@ import java.awt.*;
 
 import javax.swing.*;
 
-public class Artefacts {
+public class Artifacts {
 
 	public JButton ataque(){
 		JButton atacar = new JButton("Ataque");
@@ -19,7 +19,7 @@ public class Artefacts {
 	public JProgressBar energia(){
 		JProgressBar nrg = new JProgressBar(0, 100);
 		nrg.setSize(350, 80);
-		nrg.setValue(20);
+		nrg.setValue(50);
 		nrg.setString("Barra de energia");
 		nrg.setVisible(true);
 
@@ -34,6 +34,22 @@ public class Artefacts {
 				e -> JOptionPane.showMessageDialog(null, "Este botão será a movimentação do personagem")
 		);
 		return move;
+	}
+
+	public JLabel info(){
+		return new JLabel("Informacoes");
+	}
+
+	public JLabel turno(){
+		return new JLabel("Turno");
+	}
+
+	public JLabel jogador(){
+		return new JLabel("Jogador da Vez");
+	}
+
+	public JLabel pista(){
+		return new JLabel("Pista");
 	}
 
 }
