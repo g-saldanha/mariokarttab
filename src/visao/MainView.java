@@ -1,14 +1,11 @@
-package view;
+package visao;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
 public class MainView {
@@ -24,7 +21,7 @@ public class MainView {
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		frame.setUndecorated(true);
 		try {
-			frame.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("/home/gabriel/IdeaProjects/Mario Kart Tab/src/view/mario-kart-64.jpg")))));
+			frame.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("/home/gabriel/IdeaProjects/Mario Kart Tab/src/visao/mario-kart-64.jpg")))));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

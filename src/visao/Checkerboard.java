@@ -1,4 +1,4 @@
-package view;
+package visao;
 
 import java.awt.*;
 import java.applet.*;

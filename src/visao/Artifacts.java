@@ -1,6 +1,4 @@
-package view;
-
-import java.awt.*;
+package visao;
 
 import javax.swing.*;
 
