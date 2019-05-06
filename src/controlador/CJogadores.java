@@ -1,40 +1,41 @@
 package controlador;
 
-import br.ufsc.inf.leobr.cliente.Jogada;
-import br.ufsc.inf.leobr.cliente.OuvidorProxy;
-import br.ufsc.inf.leobr.cliente.Proxy;
+import modelo.Jogador;
 
-public class CJogadores implements OuvidorProxy {
-	private Proxy proxy;
-	@Override public void iniciarNovaPartida(Integer posicao) {
+import java.util.ArrayList;
+import java.util.List;
 
-	}
+public class CJogadores {
+    private static CJogadores cJogadores = new CJogadores();
+    private Jogador jogador1;
+    private Jogador jogador2;
+    private List<Jogador> jogadores;
 
-	@Override public void finalizarPartidaComErro(String message) {
+    public static CJogadores getInstance() {
+        return cJogadores;
+    }
 
-	}
+    private CJogadores() {
+        this.jogadores = new ArrayList<>();
+        this.jogador1 = new Jogador();
+        this.jogador2 = new Jogador();
+        this.jogadores.add(this.jogador1);
+        this.jogadores.add(this.jogador2);
+    }
 
-	@Override public void receberMensagem(String msg) {
+    public Jogador getJogador1() {
+        return this.jogador1;
+    }
 
-	}
+    public void setJogador1(Jogador jogador1) {
+        this.jogador1 = jogador1;
+    }
 
-	@Override public void receberJogada(Jogada jogada) {
+    public Jogador getJogador2() {
+        return this.jogador2;
+    }
 
-	}
-
-	@Override public void tratarConexaoPerdida() {
-
-	}
-
-	@Override public void tratarPartidaNaoIniciada(String message) {
-
-	}
-
-	public Proxy getProxy() {
-		return proxy;
-	}
-
-	public void setProxy(Proxy proxy) {
-		this.proxy = proxy;
-	}
+    public void setJogador2(Jogador jogador2) {
+        this.jogador2 = jogador2;
+    }
 }

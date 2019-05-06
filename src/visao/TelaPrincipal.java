@@ -1,4 +1,8 @@
 package visao;
 
-public class TelaPrincipal {
+public class TelaPrincipal implements ITela {
+    @Override
+    public void renderizar() {
+
+    }
 }

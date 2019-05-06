@@ -1,4 +1,8 @@
 package visao;
 
-public class TelaEscolherJogadores {
+public class TelaEscolherJogadores implements ITela{
+    @Override
+    public void renderizar() {
+
+    }
 }
