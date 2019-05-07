@@ -1,5 +1,8 @@
 package controlador;
 
+import br.ufsc.inf.leobr.cliente.Jogada;
+import br.ufsc.inf.leobr.cliente.OuvidorProxy;
+import br.ufsc.inf.leobr.cliente.Proxy;
 import modelo.Dado;
 import utils.Constantes;
 
@@ -9,7 +12,8 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
-public class CGeral {
+public class CGeral implements OuvidorProxy {
+    private Proxy proxy;
     private static CGeral ourInstance = new CGeral();
     public static GraphicsConfiguration gc;
     private CInformacoes cInformacoes;
@@ -61,5 +65,34 @@ public class CGeral {
 
         frame.pack();
         frame.setVisible(true);
+    }
+
+    @Override
+    public void iniciarNovaPartida(Integer posicao) {
+    }
+
+    @Override
+    public void finalizarPartidaComErro(String message) {
+
+    }
+
+    @Override
+    public void receberMensagem(String msg) {
+
+    }
+
+    @Override
+    public void receberJogada(Jogada jogada) {
+
+    }
+
+    @Override
+    public void tratarConexaoPerdida() {
+
+    }
+
+    @Override
+    public void tratarPartidaNaoIniciada(String message) {
+
     }
 }

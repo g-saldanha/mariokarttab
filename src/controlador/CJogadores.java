@@ -1,11 +1,12 @@
 package controlador;
 
+import br.ufsc.inf.leobr.cliente.Jogada;
 import modelo.Jogador;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CJogadores {
+public class CJogadores implements Jogada {
     private static CJogadores cJogadores = new CJogadores();
     private Jogador jogador1;
     private Jogador jogador2;
