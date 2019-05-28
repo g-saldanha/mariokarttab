@@ -54,6 +54,7 @@ public class CNetGames implements Jogada, OuvidorProxy {
         try {
             this.proxy.conectar(ipServidor, nomeJogador);
             suxesso = "Conectou";
+            CGeral.getInstance().setIsConectado(true);
         } catch (JahConectadoException e) {
             e.printStackTrace();
             suxesso = "Ja esta conectado";

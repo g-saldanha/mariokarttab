@@ -13,4 +13,5 @@ public class Constantes {
     public static final String PISTA = "Pista";
     public static final String BOAS_VINDAS = "Bem vindo ao Mario kart";
     public static final String PARIDA_INICIADA = "Partida Iniciada";
+    public static final String VOCE_JA_ESTA_CONECTADO = "Voce ja esta conectado";
 }

@@ -15,6 +15,12 @@ public class CGeral {
     private CTelas cTelas;
     private Dado dado = new Dado();
 
+    public static void setIsConectado(boolean isConectado) {
+        CGeral.isConectado = isConectado;
+    }
+
+    private static boolean isConectado = false;
+
     public Dado getDado() {
         return this.dado;
     }
@@ -48,7 +54,11 @@ public class CGeral {
     }
 
     public void iniciarPartida() {
-        CNetGames.getInstance().iniciarNovaPartida(0);
-        this.cTelas.notifica(Constantes.PARIDA_INICIADA);
+        if (isConectado) {
+            this.cTelas.notifica(Constantes.VOCE_JA_ESTA_CONECTADO);
+        } else {
+            CNetGames.getInstance().iniciarNovaPartida(0);
+            this.cTelas.notifica(Constantes.PARIDA_INICIADA);
+        }
     }
 }
