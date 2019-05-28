@@ -4,8 +4,6 @@
       <root url="jar://$PROJECT_DIR$/ngnrtFramework.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES>
-      <root url="jar://$PROJECT_DIR$/ngnrtFramework.jar!/" />
-    </SOURCES>
+    <SOURCES />
   </library>
 </component>
