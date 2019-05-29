@@ -54,10 +54,10 @@ public class CGeral {
     }
 
     public void iniciarPartida() {
-        if (isConectado) {
+        if (!isConectado) {
             this.cTelas.notifica(Constantes.VOCE_JA_ESTA_CONECTADO);
         } else {
-            CNetGames.getInstance().iniciarNovaPartida(0);
+            CNetGames.getInstance().iniciarNovaPartida(2);
             this.cTelas.notifica(Constantes.PARIDA_INICIADA);
         }
     }
