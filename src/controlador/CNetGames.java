@@ -6,13 +6,16 @@ import br.ufsc.inf.leobr.cliente.Proxy;
 import br.ufsc.inf.leobr.cliente.exception.ArquivoMultiplayerException;
 import br.ufsc.inf.leobr.cliente.exception.JahConectadoException;
 import br.ufsc.inf.leobr.cliente.exception.NaoPossivelConectarException;
+import org.apache.log4j.Logger;
+import org.apache.log4j.Priority;
 
 public class CNetGames implements Jogada, OuvidorProxy {
     private static CNetGames ourInstance = new CNetGames();
-    public Proxy proxy;
+    public final Proxy proxy = Proxy.getInstance();
+    private Logger logger = Logger.getRootLogger();
 
     public CNetGames() {
-        this.proxy = Proxy.getInstance();
+        this.proxy.addOuvinte(this);
     }
 
     public static CNetGames getInstance() {
@@ -50,20 +53,20 @@ public class CNetGames implements Jogada, OuvidorProxy {
     }
 
     public String conectar(String ipServidor, String nomeJogador) {
-        String suxesso;
+        String suxesso = null;
         try {
             this.proxy.conectar(ipServidor, nomeJogador);
             suxesso = "Conectou";
-            CGeral.getInstance().setIsConectado(true);
+            CGeral.setIsConectado(true);
         } catch (JahConectadoException e) {
-            e.printStackTrace();
             suxesso = "Ja esta conectado";
+            this.logger.log(Priority.INFO, suxesso + e.getMessage());
         } catch (NaoPossivelConectarException e) {
-            e.printStackTrace();
             suxesso = "Nao foi possivel conectar";
+            this.logger.log(Priority.INFO, suxesso + e.getMessage());
         } catch (ArquivoMultiplayerException e) {
-            e.printStackTrace();
             suxesso = "Alguma exception que nao entendi";
+            this.logger.log(Priority.INFO, suxesso + e.getMessage());
         }
         return suxesso;
     }

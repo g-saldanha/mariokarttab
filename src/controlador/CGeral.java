@@ -8,11 +8,6 @@ import utils.Constantes;
 public class CGeral {
 
 	private static CGeral ourInstance = new CGeral();
-	private CInformacoes cInformacoes;
-	private CJogadores cJogadores;
-	private CMenu cMenu;
-	private CPista cPista;
-	private CTelas cTelas;
 	private Dado dado = new Dado();
 
 	public static void setIsConectado(boolean isConectado) {
@@ -34,11 +29,6 @@ public class CGeral {
 	}
 
 	private CGeral() {
-		this.cInformacoes = CInformacoes.getInstance();
-		this.cJogadores = CJogadores.getInstance();
-		this.cMenu = CMenu.getInstance();
-		this.cPista = CPista.getInstance();
-		this.cTelas = CTelas.getInstance();
 	}
 
 	public static void main(String[] args) {
@@ -54,11 +44,11 @@ public class CGeral {
 	}
 
 	public void iniciarPartida() {
-		if (isConectado) {
-			this.cTelas.notifica(Constantes.VOCE_JA_ESTA_CONECTADO);
+		if (!isConectado) {
+			CTelas.getInstance().notifica(Constantes.VOCE_JA_ESTA_CONECTADO);
 		} else {
-			CNetGames.getInstance().iniciarNovaPartida(0);
-			this.cTelas.notifica(Constantes.PARIDA_INICIADA);
+			CNetGames.getInstance().iniciarNovaPartida(2);
+			CTelas.getInstance().notifica(Constantes.PARIDA_INICIADA);
 		}
 	}
 }
